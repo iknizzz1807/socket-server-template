@@ -170,7 +170,8 @@ func (gs *GameServer) HandlePlayerMessages(player *Player) {
 			log.Printf("Message processing error: %v", err)
 		}
 
-		// fmt.Println("Player " + player.ID + " sent the message with the content: " + string(message))
+		fmt.Println("Player " + player.ID + " sent the message with the content: " + string(message))
+		gs.BroadcastMessage([]byte("Hello from the server!"))
 
 		player.LastActivity = time.Now()
 	}
